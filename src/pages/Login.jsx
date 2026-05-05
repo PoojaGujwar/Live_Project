@@ -27,6 +27,7 @@ const Login = () => {
             
         } catch (err) {
             if (err.response) {
+                setMessage(err.response.data.message)
     console.log(err.response.data.message);
   } else {
     console.log("Server not responding");
@@ -34,19 +35,20 @@ const Login = () => {
         }
     }
   return (
-    <div>
+    <div className='container mt-5'>
       <h3>Login </h3>
-      <form onSubmit={handleLoginForm}>
+      {message && <p>{message}</p>}
+      <form onSubmit={handleLoginForm} className='form-control'>
         <div>
-            <label>Email</label>
-            <input type='email' name="email" placeholder='Enter email' onChange={getData}/>
+            <label className='form-label'>Email</label>
+            <input type='email' name="email" placeholder='Enter email' onChange={getData} className='form-control'/>
         </div>
         <div>
-            <label>Password</label>
-            <input type='password' name="password" placeholder='****' onChange={getData}/>
+            <label className='form-label'>Password</label>
+            <input type='password' name="password" placeholder='****' onChange={getData} className='form-control'/>
         </div>
-        <button type='submit'>Login</button>
-        <Link to="/register">Register</Link>
+        <button type='submit' className='btn btn-primary m-2'>Login</button>
+        <Link to="/register" className='btn btn-secondary m-2'>Register</Link>
       </form>
     </div>
   )

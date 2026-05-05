@@ -4,6 +4,7 @@
 import Login from "./pages/Login"
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Register from "./pages/Register"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
 
